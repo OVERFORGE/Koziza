@@ -10,7 +10,7 @@ import {
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import ReactDOM from "react-dom";
-import Category from "./pages/category";
+import Category from "./pages/Category";
 import Footer from "./components/Footer";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
