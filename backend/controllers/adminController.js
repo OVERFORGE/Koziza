@@ -2,7 +2,7 @@
 import validator from "validator";
 import bcrypt from "bcrypt";
 import { v2 as cloudinary } from "cloudinary";
-import productModel from "../Models/productModel.js";
+import productModel from "../models/productModel.js";
 import jwt from "jsonwebtoken";
 
 const addProduct = async (req, res) => {
