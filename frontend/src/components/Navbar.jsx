@@ -102,12 +102,12 @@ const Navbar = ({ setShowLogin }) => {
       </header>
       <div className="w-full flex justify-center  p-2 mt-[-6.2%] sm:mt-[-2%] z-[1] bg-[#E57373]">
         <div
-          className={`font-mySmallFont font-bold flex flex-col justify-center z-[1]  w-[90%] rounded-sm mt-3 py-3 ${
+          className={`font-mySmallFont  flex flex-col justify-center z-[1]  w-[90%] rounded-sm mt-3 py-3 ${
             toggleMenu ? "bg-[#E57373]" : ""
           } `}
         >
           <button
-            className={`py-1 px-3 border border-[#E57373] bg-[#E57373] rounded text-sm transition-all md:hidden ${
+            className={`py-1 px-3 font-bold text-lg border border-[#E57373] bg-[#E57373] rounded text-sm transition-all md:hidden ${
               toggleMenu ? "bg-[#E57373] text-[#200125]" : ""
             }`}
             onClick={() => setToggleMenu((prev) => !prev)}
@@ -119,9 +119,9 @@ const Navbar = ({ setShowLogin }) => {
               toggleMenu ? "flex" : "hidden "
             }`}
           >
-            <ul className="flex justify-center gap-2 font-semibold flex-col    p-2 mt-[-5%] cursor-pointer">
+            <ul className="flex justify-center gap-2 font-semibold flex-col w-full text-center   p-2 mt-[-5%] cursor-pointer">
               <NavLink to="/" className={"w-full"}>
-                <li>Home</li>
+                <li className="mt-4">Home</li>
               </NavLink>
               <NavLink to="/products">
                 <li>Product</li>
