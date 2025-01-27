@@ -3,7 +3,7 @@ import footer from "../assets/Koziza_Footer.png";
 import forge from "../assets/Koziza_Forge.png";
 import Logo from "../assets/Koziza Logo.png";
 import { NavLink, Route, Link } from "react-router-dom";
-import Home from "../pages/home";
+import Home from "../pages/Home";
 import "../App.css";
 const Footer = () => {
   return (

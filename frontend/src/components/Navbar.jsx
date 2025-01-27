@@ -101,8 +101,8 @@ const Navbar = ({ setShowLogin }) => {
         </div>
       </header>
       <div
-        className={`w-full flex justify-center  p-2 mt-[-6.2%] sm:mt-[-2%] z-[1] bg-[#E57373] ${
-          toggleMenu ? "mt-[-5%]" : ""
+        className={`font-mySmallFont  flex flex-col justify-center z-[1]  w-[90%] rounded-sm mt-3 py-3 ${
+          toggleMenu ? "bg-[#E57373]" : ""
         } `}
       >
         <div
