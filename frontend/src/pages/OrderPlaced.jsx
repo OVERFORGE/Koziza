@@ -4,11 +4,11 @@ import ThanksImage from "../assets/Koziza Shopping Thanks.png";
 const OrderPlaced = () => {
   const [timer, setTimer] = useState(10);
   const navigate = useNavigate();
-  useEffect(() => {
-    setTimeout(() => {
-      navigate("/my-orders");
-    }, 10000);
-  }, []);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     navigate("/my-orders");
+  //   }, 10000);
+  // }, []);
   useEffect(() => {
     const interval = setInterval(() => {
       setTimer(timer - 1);

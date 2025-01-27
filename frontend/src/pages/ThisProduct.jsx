@@ -21,7 +21,7 @@ const ThisProduct = () => {
   return (
     prodInfo && (
       <div
-        className={`mt-[-200px] mb-[-200px]  pt-[240px] pb-[240px] font-mySmallFont w-full bg-[#ffbeca] px-10 sm:px-20   md:px-30 lg:px-40 ${
+        className={`mt-[-200px] mb-[-165px]  pt-[240px] pb-[240px] font-mySmallFont w-full bg-[#ffbeca] px-10 sm:px-20   md:px-30 lg:px-40 ${
           toggleMenu ? "pt-[270px] mt-[-260px]" : ""
         } `}
       >

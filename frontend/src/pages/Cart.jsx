@@ -10,10 +10,15 @@ const Cart = () => {
     addToCart,
     removeFromCart,
     getTotalCartAmount,
+    toggleMenu,
   } = useContext(AppContext);
   const navigate = useNavigate();
   return (
-    <div className="font-mySmallFont mt-[-200px] mb-[-160px]  pt-[240px] pb-[240px] text-[10px] md:text-base bg-[#ffbeca]">
+    <div
+      className={`font-mySmallFont mt-[-200px] mb-[-160px]  pt-[240px] pb-[240px] text-[10px] md:text-base bg-[#ffbeca] ${
+        toggleMenu ? "pt-[270px] mt-[-260px]" : ""
+      } `}
+    >
       <div className="md:px-40 sm:px-20 px-10 sm:text-md">
         <div className="grid grid-cols-12 items-center text-[#200125] font-semibold">
           <p className="grid grid-cols-subgrid col-span-1">Items</p>

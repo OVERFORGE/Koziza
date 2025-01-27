@@ -4,8 +4,14 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 const PlaceOrder = () => {
-  const { getTotalCartAmount, token, products, cartProducts, backendUrl } =
-    useContext(AppContext);
+  const {
+    getTotalCartAmount,
+    token,
+    products,
+    cartProducts,
+    backendUrl,
+    toggleMenu,
+  } = useContext(AppContext);
   const navigate = useNavigate();
   const [data, setData] = useState({
     firstName: "",
@@ -42,6 +48,7 @@ const PlaceOrder = () => {
       headers: { token },
     });
     if (response.data.success) {
+      console.log(response.data.success);
       const { session_url } = response.data;
       window.location.replace(session_url);
     } else {
@@ -58,7 +65,11 @@ const PlaceOrder = () => {
     }
   }, [token]);
   return (
-    <div className="font-mySmallFont mt-[-200px] mb-[-200px] pt-[150px] pb-[220px] md:pt-[240px] md:pb-[240px] md:px-40 sm:px-20 px-10 sm:text-md text-[10px] md:text-base bg-[#ffbeca]">
+    <div
+      className={`font-mySmallFont mt-[-200px] mb-[-165px] pt-[150px] pb-[220px] md:pt-[240px] md:pb-[240px] md:px-40 sm:px-20 px-10 sm:text-md text-[10px] md:text-base bg-[#ffbeca] ${
+        toggleMenu ? "pt-[270px] mt-[-260px]" : ""
+      } `}
+    >
       <form
         onSubmit={placeOrder}
         className="flex md:flex-row flex-col items-start justify-center md:justify-between gap-12 mt-[100px] "
@@ -165,7 +176,6 @@ const PlaceOrder = () => {
               </div>
             </div>
             <button
-              onClick={() => navigate("/order")}
               className="border-none bg-[#200125] text-white w-[max(10vw,160px)] md:w-[max(15vw,200px)] py-3 rounded-md cursor-pointer mt-8 mb-2"
               type="submit"
             >
