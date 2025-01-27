@@ -49,34 +49,37 @@ const Navbar = ({ setShowLogin }) => {
           </button>
         ) : (
           <div
-            className={`absolute top-1 sm:top-1  md:top-1  lg:top-2 xl:top-3 right-12 sm:right-20 md:right-24 lg:right-28 xl:right-36 ${
-              toggleIcon
-                ? "right-10 sm:right-[72px] md:right-[84px] lg:right-[92px] xl:right-[125px]"
-                : ""
-            }`}
+            className={`absolute top-1 sm:top-1  md:top-1  lg:top-2 xl:top-3 right-12 sm:right-20 md:right-24 lg:right-28 xl:right-36 `}
             onClick={() => {
               setToggleIcon(!toggleIcon);
             }}
           >
             <img
-              className="w-6 sm:w-10 md:w-12 lg:w-14 xl:w-16"
+              className={`w-6 sm:w-10 md:w-12 lg:w-14 xl:w-16 relative  ${
+                toggleIcon
+                  ? "right-[-65%] sm:right-[-47%] md:right-[-37%] lg:right-[-38%] xl:right-[-39.5%]"
+                  : ""
+              } `}
               src={iconButton}
               alt=""
             />
             <ul
               id="dropdownHover"
               aria-labelledby="dropdownHoverButton"
-              className={`z-[1] mt-1 px-3 py-2 rounded-md bg-[#ffbeca] border border-[#200125] ${
+              className={` mt-1 px-2 py-1 sm:px-3 sm:py-2 xl:px-4 rounded-md bg-[#ffbeca] border border-[#200125] ${
                 toggleIcon ? "block" : "hidden"
-              } text-md font-semibold font-mySmallFont`}
+              } text-sm sm:text-md lg:text-lg xl:text-xl font-semibold font-mySmallFont`}
             >
-              <li className=" mb-2 ">
+              <li className=" mb-1 md:mb-2 xl:mb-3">
                 <NavLink to={"/my-orders"}>
                   <p>Orders</p>
                 </NavLink>
               </li>
               <hr />
-              <li className="cursor-pointer mt-2" onClick={logout}>
+              <li
+                className="z-[999] cursor-pointer mt-1 md:mt-2 xl:mt-3"
+                onClick={logout}
+              >
                 <p>Logout</p>
               </li>
             </ul>
