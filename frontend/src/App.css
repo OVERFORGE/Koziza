@@ -19,17 +19,7 @@
   color: #200125;
   position: relative;
 }
-.product-page {
-  margin-top: -200px;
-  margin-bottom: -160px;
-  padding-top: 220px;
-  padding-bottom: 250px;
-  width: 100%;
-  min-height: 100vh;
-  padding-right: 70px;
-  padding-left: 70px;
-  background-color: #ffbeca;
-}
+
 #whole-body {
   margin-top: 20px;
   padding: 0px;

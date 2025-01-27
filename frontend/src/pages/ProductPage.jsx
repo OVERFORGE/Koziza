@@ -8,7 +8,7 @@ function ProductPage() {
   const [filterProduct, setFilterProduct] = useState([]);
   const [showFilter, setShowFilter] = useState(false);
   const navigate = useNavigate();
-  const { products, addToCart } = useContext(AppContext);
+  const { products, addToCart, toggleMenu } = useContext(AppContext);
   const applyFilter = () => {
     if (category) {
       setFilterProduct(
@@ -23,7 +23,11 @@ function ProductPage() {
     applyFilter();
   }, [products, category]);
   return (
-    <div class="product-page">
+    <div
+      class={`mt-[-200px] mb-[-160px] pt-[220px] pb-[250px] w-full min-h-[100vh] px-[70px] bg-[#ffbeca] ${
+        toggleMenu ? "pt-[270px] mt-[-260px]" : ""
+      } `}
+    >
       <p className="font-mySmallFont text-[#200125] ">
         Browse through the Product List.
       </p>

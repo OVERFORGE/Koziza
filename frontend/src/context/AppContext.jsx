@@ -12,6 +12,7 @@ const AppContextProvider = (props) => {
   const [products, setProducts] = useState([]);
   const [cartProducts, setCartProducts] = useState({});
   const [totalCartProducts, setTotalCartProducts] = useState(0);
+  const [toggleMenu, setToggleMenu] = useState(false);
 
   const addToCart = async (itemId) => {
     if (!cartProducts[itemId]) {
@@ -109,6 +110,8 @@ const AppContextProvider = (props) => {
     backendUrl,
     token,
     setToken,
+    toggleMenu,
+    setToggleMenu,
   };
   return (
     <AppContext.Provider value={value}>{props.children}</AppContext.Provider>

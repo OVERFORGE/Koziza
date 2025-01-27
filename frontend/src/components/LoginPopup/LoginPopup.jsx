@@ -48,7 +48,7 @@ const LoginPopup = ({ setShowLogin }) => {
   //     console.log(data);
   //   }, [data]);
   return (
-    <div className="absolute z-[1] w-[100%] h-[100%] bg-[#00000090] grid">
+    <div className="absolute z-[2] w-[100%] h-[100%] bg-[#00000090] grid">
       <form
         onSubmit={onLogin}
         className="place-self-center w-[max(23vw,330px)] text-[#333] bg-[#FFBECA] flex flex-col gap-6 py-6 px-7 border border-[#200125] rounded-lg text-md"
