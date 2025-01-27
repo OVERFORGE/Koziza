@@ -3,7 +3,7 @@ import { AppContext } from "../context/AppContext";
 import axios from "axios";
 import box from "../assets/box.png";
 const MyOrders = () => {
-  const { backendUrl, token } = useContext(AppContext);
+  const { backendUrl, token, toggleMenu } = useContext(AppContext);
   const [data, setData] = useState([]);
   const fetchOrders = async () => {
     const response = await axios.post(
@@ -19,7 +19,11 @@ const MyOrders = () => {
     }
   }, [token]);
   return (
-    <div className="font-mySmallFont py-12 px-5 sm:px-12 md:px-24 bg-[#ffbeca] mt-[-200px] mb-[-200px]  pt-[240px] pb-[240px]">
+    <div
+      className={`font-mySmallFont py-12 px-5 sm:px-12 md:px-24 bg-[#ffbeca] mt-[-200px] mb-[-165px]  pt-[240px] pb-[240px] ${
+        toggleMenu ? "pt-[270px] mt-[-260px]" : ""
+      } `}
+    >
       <h2 className="md:text-2xl font-bold">My Orders</h2>
       <div className="flex flex-col gap-5 mt-8 ">
         {data.map((order, index) => {
