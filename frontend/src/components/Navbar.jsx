@@ -97,7 +97,7 @@ const Navbar = ({ setShowLogin }) => {
             <NavLink>
               <li>Custom Work</li>
             </NavLink>
-            <Link to="#suffering">
+            <Link to="/#suffering">
               <li>About Us</li>
             </Link>
           </ul>
