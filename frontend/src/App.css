@@ -218,12 +218,13 @@ footer {
 
 .hero-section-container {
   padding: 10px 100px;
-  position: relative;
+  position: sticky;
   /* top: -0px; */
   /* height: 90%; */
   margin: auto;
   /* background-color: #200125; */
   overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 .hero-section {

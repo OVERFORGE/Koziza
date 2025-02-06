@@ -175,13 +175,30 @@ const Navbar = ({ setShowLogin }) => {
               setToggleMenu ? "block" : "hidden"
             }`}
           >
-            <div className="flex flex-col justify-between w-full h-full items-center my-4">
+            <div className="flex flex-col justify-start w-full h-full items-center my-4">
               <img src={KozizaLogo} className="w-8/12" alt="" />
+              <div className="h-7/12 font-myFont text-3xl mt-6 text-center ">
+                <ul>
+                  <NavLink to="/">
+                    <li className="mb-2">Home</li>
+                  </NavLink>
+                  <NavLink to="/products">
+                    <li className="mb-2">Product</li>
+                  </NavLink>
+                  <NavLink>
+                    <li className="mb-2">Commission</li>
+                  </NavLink>
+
+                  <NavLink to="/about-us">
+                    <li className="mb-2">About us</li>
+                  </NavLink>
+                </ul>
+              </div>
             </div>
           </div>
           <div
-            className={`inline-block mt-1 ml-8 duration-[0.5s]  ease-in-out z-[999] ${
-              toggleMenu ? "ml-1" : ""
+            className={`inline-block mt-[2px] ml-8 duration-[0.5s]  ease-in-out z-[999] ${
+              toggleMenu ? "ml-[8px]" : ""
             }`}
             ref={hamburgerMenu}
             onClick={() => setToggleMenu(!toggleMenu)}
