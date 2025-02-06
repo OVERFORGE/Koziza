@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import {
   BrowserRouter,
   Route,
@@ -24,6 +24,7 @@ import PlaceOrder from "./pages/PlaceOrder";
 import OrderPlaced from "./pages/OrderPlaced";
 import MyOrders from "./pages/MyOrders";
 import AboutUs from "./pages/AboutUs";
+import { AppContext } from "./context/AppContext";
 
 function ScrollToTop() {
   const location = useLocation();
@@ -36,11 +37,12 @@ function ScrollToTop() {
 }
 function App() {
   const [showLogin, setShowLogin] = useState(false);
+  const { toggleMenu } = useContext(AppContext);
   return (
     <>
       <ToastContainer />
       {showLogin ? <LoginPopup setShowLogin={setShowLogin} /> : <></>}
-      <div>
+      <div className={`${toggleMenu ? "fixed" : ""}`}>
         <Navbar setShowLogin={setShowLogin} />
         <ScrollToTop />
         <Routes>
