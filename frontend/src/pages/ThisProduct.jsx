@@ -6,8 +6,14 @@ const ThisProduct = () => {
 
   const [prodInfo, setProdInfo] = useState([]);
   const [prodQuantity, setProdQuantity] = useState(1);
-  const { cartProducts, addToCart, removeFromCart, products, toggleMenu } =
-    useContext(AppContext);
+  const {
+    cartProducts,
+    addToCart,
+    removeFromCart,
+    products,
+    toggleMenu,
+    buyNow,
+  } = useContext(AppContext);
   const fetchProdInfo = async () => {
     const prodInfo = products.find((prod) => prod._id === prodId);
     setProdInfo(prodInfo);
@@ -69,7 +75,10 @@ const ThisProduct = () => {
                   </button>
                 </div>
                 <div className="flex flex-col gap-4">
-                  <button className="bg-[#FFFDEE] px-12 md:px-24 py-4 rounded-xl border border-[#200125] hover:bg-[#200125] hover:text-[#FFFDEE] font-bold transition-all duration-200">
+                  <button
+                    onClick={() => buyNow(prodInfo._id)}
+                    className="bg-[#FFFDEE] px-12 md:px-24 py-4 rounded-xl border border-[#200125] hover:bg-[#200125] hover:text-[#FFFDEE] font-bold transition-all duration-200"
+                  >
                     BUY NOW
                   </button>
                   <button

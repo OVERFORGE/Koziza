@@ -23,6 +23,7 @@ import Cart from "./pages/Cart";
 import PlaceOrder from "./pages/PlaceOrder";
 import OrderPlaced from "./pages/OrderPlaced";
 import MyOrders from "./pages/MyOrders";
+import AboutUs from "./pages/AboutUs";
 
 function ScrollToTop() {
   const location = useLocation();
@@ -51,6 +52,7 @@ function App() {
           <Route path="/order" element={<PlaceOrder />} />
           <Route path="/verify" element={<OrderPlaced />} />
           <Route path="/my-orders" element={<MyOrders />} />
+          <Route path="/about-us" element={<AboutUs />} />
         </Routes>
         <Footer />
       </div>

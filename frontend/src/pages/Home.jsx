@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import Koziza_hero from "../assets/koziza_hero.png";
 import Dark_Cloud_Koziza from "../assets/Dark_Cloud_Koziza.png";
 import Light_Cloud_Koziza from "../assets/Light_Cloud_Koziza.png";
@@ -8,8 +8,21 @@ import Illustration from "../assets/Illustration_Koziza.png";
 import Sticker from "../assets/Sticker_Koziza.png";
 import Suffering_Koziza from "../assets/Suffering_Koziza.png";
 import { useNavigate, useParams, Link } from "react-router-dom";
+import { AppContext } from "../context/AppContext";
+import CustomWork from "../components/CustomWork";
 function Home() {
   const navigate = useNavigate();
+  const suffering = useRef(null);
+  const { aboutScroll, setAboutScroll } = useContext(AppContext);
+  const checkAboutScroll = () => {
+    if (aboutScroll) {
+      suffering.current.scrollIntoView();
+      setAboutScroll(false);
+    }
+  };
+  useEffect(() => {
+    checkAboutScroll();
+  }, [aboutScroll]);
   function adjustHeight() {
     const body = document.querySelector("#whole-body");
     const beforeElement = getComputedStyle(body, "::before");
@@ -92,7 +105,7 @@ function Home() {
             </div>
           </div>
           {/* -----------------------------SUFFERING----------------------------- */}
-          <div class="suffering-section" id="suffering">
+          <div class="suffering-section" id="suffering" ref={suffering}>
             <h1>My Story</h1>
             <div class="suffering-content">
               <div class="suffering-left-container">
@@ -117,6 +130,7 @@ function Home() {
               </div>
             </div>
           </div>
+          <CustomWork />
         </div>
       </div>
     </div>

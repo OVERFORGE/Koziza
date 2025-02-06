@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import Header from "../assets/Koziza_Header.png";
 import CartCruiso from "../assets/cruiso_cart_koziza.png";
 import "../App.css";
@@ -9,10 +9,20 @@ import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { toast } from "react-toastify";
 import loginButton from "../assets/Koziza Login.png";
 import iconButton from "../assets/Koziza userIcon.png";
+import menuButton from "../assets/menu-button.svg";
+import KozizaLogo from "../assets/Koziza BG Logo.png";
 const Navbar = ({ setShowLogin }) => {
   const [toggleIcon, setToggleIcon] = useState(false);
-  const { totalCartProducts, token, setToken, setToggleMenu, toggleMenu } =
-    useContext(AppContext);
+
+  const hamburgerMenu = useRef(null);
+  const {
+    totalCartProducts,
+    token,
+    setToken,
+    setToggleMenu,
+    toggleMenu,
+    setAboutScroll,
+  } = useContext(AppContext);
   const navigate = useNavigate();
   const logout = () => {
     localStorage.removeItem("token");
@@ -20,10 +30,17 @@ const Navbar = ({ setShowLogin }) => {
     navigate("/");
     toast("Logout Successfully");
   };
+  const aboutSectionScroll = () => {
+    setAboutScroll(true);
+  };
+  function myFunction() {
+    menu.ClassList.toggle("change");
+  }
   return (
     <div>
       <header>
         <img className={"header-img"} src={Header} alt="" />
+
         <NavLink to="/cart">
           <div className={"header-cart-holder"}>
             <img className={"header-cart"} src={CartCruiso} alt="" />
@@ -39,7 +56,7 @@ const Navbar = ({ setShowLogin }) => {
         {!token ? (
           <button
             onClick={() => setShowLogin(true)}
-            className="absolute top-[-8%] right-[7%] sm:top-[-3%] md:top-[0%] p-3"
+            className="absolute top-[-8%] right-[7%] sm:top-[-3%] md:top-[0%] p-3 cursor-pointer"
           >
             <img
               className="w-7 sm:w-12 md:w-16 lg:w-20 "
@@ -49,7 +66,7 @@ const Navbar = ({ setShowLogin }) => {
           </button>
         ) : (
           <div
-            className={`absolute top-1 sm:top-1  md:top-1  lg:top-2 xl:top-3 right-12 sm:right-20 md:right-24 lg:right-28 xl:right-36 `}
+            className={`absolute top-1 sm:top-1  md:top-1  lg:top-2 xl:top-3 right-12 sm:right-20 md:right-24 lg:right-28 xl:right-36 cursor-pointer `}
             onClick={() => {
               setToggleIcon(!toggleIcon);
             }}
@@ -95,15 +112,17 @@ const Navbar = ({ setShowLogin }) => {
               <li>Product</li>
             </NavLink>
             <NavLink>
-              <li>Custom Work</li>
+              <li>Commission</li>
             </NavLink>
-            <Link to="/#suffering">
-              <li>About Us</li>
-            </Link>
+
+            <NavLink to="/about-us">
+              <li>About us</li>
+            </NavLink>
           </ul>
         </div>
       </header>
-      <div
+
+      {/* <div
         className={`w-full flex justify-center  p-2 mt-[-6.2%] sm:mt-[-2%] z-[1] bg-[#E57373] ${
           toggleMenu ? "mt-[-5%]" : ""
         } `}
@@ -134,12 +153,54 @@ const Navbar = ({ setShowLogin }) => {
                 <li>Product</li>
               </NavLink>
               <NavLink>
-                <li>Custom Work</li>
+                <li>Commission</li>
               </NavLink>
-              <NavLink>
-                <li>About Us</li>
+              <NavLink to="/about-us">
+                <li>About us</li>
               </NavLink>
             </ul>
+          </div>
+        </div>
+      </div> */}
+      <div className={`${toggleMenu ? "" : ""}`}>
+        <div
+          className={`w-[100vw] h-[100vh]  z-[999] absolute  flex  duration-[0.5s] ease-in-out ${
+            toggleMenu
+              ? "top-0 translate-x-0 bg-[#00000090] fixed overflow-hidden"
+              : "top-0 translate-x-[-66.7vw] "
+          } `}
+        >
+          <div
+            className={`w-2/3 bg-[#ffbeca] ${
+              setToggleMenu ? "block" : "hidden"
+            }`}
+          >
+            <div className="flex flex-col justify-between w-full h-full items-center my-4">
+              <img src={KozizaLogo} className="w-8/12" alt="" />
+            </div>
+          </div>
+          <div
+            className={`inline-block mt-1 ml-8 duration-[0.5s]  ease-in-out z-[999] ${
+              toggleMenu ? "ml-1" : ""
+            }`}
+            ref={hamburgerMenu}
+            onClick={() => setToggleMenu(!toggleMenu)}
+          >
+            <div
+              className={`w-7 h-[4px] bg-[#FFFDEE] my-1 duration-[0.5s] ease-in-out rounded-md ${
+                toggleMenu ? "translate-y-[8.3px] rotate-[-45deg] " : ""
+              }`}
+            ></div>
+            <div
+              className={`w-7 h-[4px] bg-[#FFFDEE] my-1 duration-[0.5s] ease-in-out rounded-md ${
+                toggleMenu ? "opacity-0 " : ""
+              }`}
+            ></div>
+            <div
+              className={`w-7 h-[4px] bg-[#FFFDEE] my-1 duration-[0.5s] ease-in-out rounded-md ${
+                toggleMenu ? "translate-y-[-8.3px] rotate-[45deg] " : ""
+              }`}
+            ></div>
           </div>
         </div>
       </div>

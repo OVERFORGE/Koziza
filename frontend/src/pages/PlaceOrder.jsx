@@ -11,6 +11,7 @@ const PlaceOrder = () => {
     cartProducts,
     backendUrl,
     toggleMenu,
+    setCartProducts,
   } = useContext(AppContext);
   const navigate = useNavigate();
   const [data, setData] = useState({
@@ -49,6 +50,7 @@ const PlaceOrder = () => {
     });
     if (response.data.success) {
       console.log(response.data.success);
+      setCartProducts({});
       navigate("/verify");
     } else {
       alert("Error");

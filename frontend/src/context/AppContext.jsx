@@ -4,6 +4,7 @@ import { createContext } from "react";
 import { useState } from "react";
 import { toast } from "react-toastify";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 export const AppContext = createContext();
 
 const AppContextProvider = (props) => {
@@ -13,6 +14,12 @@ const AppContextProvider = (props) => {
   const [cartProducts, setCartProducts] = useState({});
   const [totalCartProducts, setTotalCartProducts] = useState(0);
   const [toggleMenu, setToggleMenu] = useState(false);
+  const [aboutScroll, setAboutScroll] = useState(false);
+  const navigate = useNavigate();
+  const buyNow = async (itemId) => {
+    addToCart(itemId);
+    navigate("/cart");
+  };
 
   const addToCart = async (itemId) => {
     if (!cartProducts[itemId]) {
@@ -112,6 +119,9 @@ const AppContextProvider = (props) => {
     setToken,
     toggleMenu,
     setToggleMenu,
+    buyNow,
+    aboutScroll,
+    setAboutScroll,
   };
   return (
     <AppContext.Provider value={value}>{props.children}</AppContext.Provider>

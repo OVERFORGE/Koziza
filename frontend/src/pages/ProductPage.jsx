@@ -8,7 +8,7 @@ function ProductPage() {
   const [filterProduct, setFilterProduct] = useState([]);
   const [showFilter, setShowFilter] = useState(false);
   const navigate = useNavigate();
-  const { products, addToCart, toggleMenu } = useContext(AppContext);
+  const { products, addToCart, toggleMenu, buyNow } = useContext(AppContext);
   const applyFilter = () => {
     if (category) {
       setFilterProduct(
@@ -117,7 +117,10 @@ function ProductPage() {
                 <p className="text-gray-600 text-sm">{item.category}</p>
               </div>
               <div className="p-4 flex gap-2 justify-around">
-                <button className="text-xs font-[#200125] font-medium bg-[#FFFDEE] rounded-lg py-3 px-4 border border-[#200125] hover:bg-[#200125] hover:text-[#FFFDEE] transition-all duration-500">
+                <button
+                  onClick={() => buyNow(item._id)}
+                  className="text-xs font-[#200125] font-medium bg-[#FFFDEE] rounded-lg py-3 px-4 border border-[#200125] hover:bg-[#200125] hover:text-[#FFFDEE] transition-all duration-500"
+                >
                   BUY NOW
                 </button>
                 <button
