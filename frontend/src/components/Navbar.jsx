@@ -103,8 +103,8 @@ const Navbar = ({ setShowLogin }) => {
           </div>
         )}
 
-        <div className="font-mySmallFont absolute md:top-4 md:left-8 bg-[#FFFDEE] px-2 py-2 rounded-lg md:text-xs md:block hidden lg:text-lg lg:px-5 ">
-          <ul className="flex flex-row md:gap-4 font-semibold ">
+        <div className="font-mySmallFont absolute md:top-4 md:left-8 bg-[#FFFDEE] px-2 py-2 rounded-lg md:text-xs md:block hidden lg:text-lg lg:px-5 cursor-pointer z-[999]">
+          <ul className="flex flex-row md:gap-4 font-semibold cursor-pointer">
             <NavLink to="/">
               <li>Home</li>
             </NavLink>
@@ -164,7 +164,7 @@ const Navbar = ({ setShowLogin }) => {
       </div> */}
       <div className={`${toggleMenu ? "" : ""}`}>
         <div
-          className={`w-[100vw] h-[100vh]  z-[999] absolute  flex  duration-[0.5s] ease-in-out ${
+          className={`w-[100vw] h-[100vh]  z-[999] absolute  flex  duration-[0.5s] ease-in-out md:hidden ${
             toggleMenu
               ? "top-0 translate-x-0 bg-[#00000090] fixed overflow-hidden"
               : "top-0 translate-x-[-66.7vw] "
@@ -179,17 +179,23 @@ const Navbar = ({ setShowLogin }) => {
               <img src={KozizaLogo} className="w-8/12" alt="" />
               <div className="h-7/12 font-myFont text-3xl mt-6 text-center ">
                 <ul>
-                  <NavLink to="/">
+                  <NavLink to="/" onClick={() => setToggleMenu(!toggleMenu)}>
                     <li className="mb-2">Home</li>
                   </NavLink>
-                  <NavLink to="/products">
+                  <NavLink
+                    to="/products"
+                    onClick={() => setToggleMenu(!toggleMenu)}
+                  >
                     <li className="mb-2">Product</li>
                   </NavLink>
-                  <NavLink>
+                  <NavLink onClick={() => setToggleMenu(!toggleMenu)}>
                     <li className="mb-2">Commission</li>
                   </NavLink>
 
-                  <NavLink to="/about-us">
+                  <NavLink
+                    to="/about-us"
+                    onClick={() => setToggleMenu(!toggleMenu)}
+                  >
                     <li className="mb-2">About us</li>
                   </NavLink>
                 </ul>
@@ -197,7 +203,7 @@ const Navbar = ({ setShowLogin }) => {
             </div>
           </div>
           <div
-            className={`inline-block mt-[2px] ml-8 duration-[0.5s]  ease-in-out z-[999] ${
+            className={`inline-block mt-[2px] ml-8 duration-[0.5s]  ease-in-out z-[999] md:hidden ${
               toggleMenu ? "ml-[8px]" : ""
             }`}
             ref={hamburgerMenu}

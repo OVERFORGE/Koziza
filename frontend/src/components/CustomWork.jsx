@@ -7,7 +7,7 @@ const CustomWork = () => {
         Get Custom Products
       </h1>
       <div className="relative flex w-full flex-col sm:flex-row  items-center justify-center h-[70%]">
-        <img className="w-10/12 sm:w-5/12" src={DmMeBlob} alt="" />
+        {/* <img className="w-10/12 sm:w-5/12" src={DmMeBlob} alt="" /> */}
         <div className="koziza-blob">Hello</div>
       </div>
     </div>
