@@ -118,6 +118,9 @@ const Navbar = ({ setShowLogin }) => {
             <NavLink to="/about-us">
               <li>About us</li>
             </NavLink>
+            <NavLink to="/portfolio">
+              <li>Portfolio</li>
+            </NavLink>
           </ul>
         </div>
       </header>
@@ -197,6 +200,12 @@ const Navbar = ({ setShowLogin }) => {
                     onClick={() => setToggleMenu(!toggleMenu)}
                   >
                     <li className="mb-2">About us</li>
+                  </NavLink>
+                  <NavLink
+                    to="/portfolio"
+                    onClick={() => setToggleMenu(!toggleMenu)}
+                  >
+                    <li className="mb-2">Portfolio</li>
                   </NavLink>
                 </ul>
               </div>

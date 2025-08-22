@@ -25,6 +25,7 @@ import OrderPlaced from "./pages/OrderPlaced";
 import MyOrders from "./pages/MyOrders";
 import AboutUs from "./pages/AboutUs";
 import { AppContext } from "./context/AppContext";
+import Portfolio from "./pages/Portfolio";
 
 function ScrollToTop() {
   const location = useLocation();
@@ -55,6 +56,7 @@ function App() {
           <Route path="/verify" element={<OrderPlaced />} />
           <Route path="/my-orders" element={<MyOrders />} />
           <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/portfolio" element={<Portfolio />} />
         </Routes>
         <Footer />
       </div>

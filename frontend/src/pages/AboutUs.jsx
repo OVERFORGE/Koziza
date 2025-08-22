@@ -31,6 +31,12 @@ const AboutUs = () => {
             </p>
           </div>
         </div>
+        <div className="mt-10">
+          <iframe
+            className="w-full h-[600px]"
+            src="https://miro.com/app/live-embed/uXjVLw8KTaY=/?embedMode=view_only_without_ui&moveToViewport=-716,352,3010,1726&embedId=585137112727?hide_controls"
+          ></iframe>
+        </div>
       </div>
     </div>
   );
